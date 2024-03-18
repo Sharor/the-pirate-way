@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: the-pirate-way-app
+  labels:
+    app: the-pirate-way-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: the-pirate-way-app
+  template:
+    metadata:
+      labels:
+        app: the-pirate-way-app
+    spec:
+      containers:
+      - name: the-pirate-way-app
+        image: sharor/the-pirate-way-app:1.0.0
+        ports:
+        - containerPort: 8080

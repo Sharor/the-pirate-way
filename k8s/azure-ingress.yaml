@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-pirate-way
+  namespace: default
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+  - host: yarrrrr.streaming
+    http:
+      paths:
+      - backend:
+          service:
+            name: the-pirate-way-service
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
